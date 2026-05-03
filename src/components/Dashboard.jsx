@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { QRCodeSVG } from 'qrcode.react';
+import { QRCodeCanvas } from 'qrcode.react';
 import { Settings, Users, BarChart3, QrCode } from 'lucide-react';
 import { useSheetData } from '../hooks/useSheetData';
 import {
@@ -77,14 +77,15 @@ export default function Dashboard({ formUrl, csvUrl, onReset }) {
             <QrCode size={20} />
             Scan to Join
           </h2>
-          <div className="qr-container">
-            <QRCodeSVG 
+          <div className="qr-container" style={{ background: '#ffffff' }}>
+            <QRCodeCanvas 
               value={formUrl} 
               size={220}
               bgColor="#ffffff"
-              fgColor="#0f172a"
+              fgColor="#000000"
               level="H"
               includeMargin={false}
+              style={{ borderRadius: '8px' }}
             />
             <p style={{ marginTop: '1.5rem', color: '#64748b', fontSize: '0.875rem', textAlign: 'center' }}>
               Point your camera at the QR code to fill out the form
